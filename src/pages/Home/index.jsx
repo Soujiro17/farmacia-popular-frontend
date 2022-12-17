@@ -1,7 +1,13 @@
 import React from "react";
+import styles from "./styles.module.css";
+import Seleccion from "../../components/Seleccion";
 
 const Home = () => {
-  return <div>Home</div>;
+  return (
+    <div className={styles.mainContainer}>
+      <Seleccion />
+    </div>
+  );
 };
 
 export default Home;
