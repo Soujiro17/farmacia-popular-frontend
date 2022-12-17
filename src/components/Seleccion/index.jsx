@@ -10,7 +10,6 @@ export default function Seleccion() {
           <button type="button">Visualizacion</button>
         </div>
       </div>
-      <img src="/img/icono.png" alt="Icono" className={styles.conteinerImg} />
     </div>
   );
 }

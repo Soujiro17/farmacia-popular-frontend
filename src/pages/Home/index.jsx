@@ -6,6 +6,7 @@ const Home = () => {
   return (
     <div className={styles.mainContainer}>
       <Seleccion />
+      <img src="/img/icono.png" alt="Icono" className={styles.conteinerImg} />
     </div>
   );
 };

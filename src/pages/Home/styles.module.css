@@ -11,3 +11,9 @@
     background: linear-gradient(to bottom, #00141C,#5B002B);
     
 }
+.conteinerImg{
+    position: absolute;
+    margin: 500px 50px;
+    width: 300px;
+    height: 100px;
+}
