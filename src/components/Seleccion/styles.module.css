@@ -27,7 +27,10 @@
     border: 1px solid #FFFFFF;
     }
 
-
+.buttonForm{
+    background: #FFFFFF;
+    border: 10px;
+}
 /* 
 position: absolute;
 width: 722px;
