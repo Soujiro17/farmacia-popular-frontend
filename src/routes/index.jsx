@@ -6,6 +6,8 @@ import FormPaciente from "../components/FormPaciente";
 import Productos from "../pages/Productos";
 import FormProducto from "../components/FormProductos";
 import Ventas from "../pages/Ventas";
+import Clientes from "../pages/Clientes";
+import NoEncontrado from "../pages/NoEncontrado";
 
 const AppRoutes = () => {
   return (
@@ -15,9 +17,10 @@ const AppRoutes = () => {
         <Route path="/formularioPaciente" element={<FormPaciente />} />
         <Route path="/inicio" element={<Inicio />} />
         <Route path="/ventas" element={<Ventas />} />
+        <Route path="/clientes" element={<Clientes />} />
         <Route path="/formproducto" element={<FormProducto />} />
         <Route path="/productos" element={<Productos />} />
-        <Route path="*" element={<p>Página no encontrada</p>} />
+        <Route path="*" element={<NoEncontrado />} />
       </Routes>
     </BrowserRouter>
   );
