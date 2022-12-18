@@ -1,6 +1,6 @@
 import styles from "./styles.module.css";
 
-export default function FormPaciente() {
+export default function FormProducto() {
   return (
     <div className={styles.mainContainer}>
       <div className={styles.centerConteiner}>
