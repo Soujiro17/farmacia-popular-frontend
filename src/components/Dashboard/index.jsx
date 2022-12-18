@@ -15,7 +15,11 @@ const Dashboard = () => {
   return (
     <GrayCard gridArea="dashboard">
       <ItemsWrapper>
-        <InputWithIcon icon="/icons/search.svg" height="8%" />
+        <InputWithIcon
+          placeholder="Buscar..."
+          icon="/icons/search.svg"
+          height="8%"
+        />
         <Container>
           <ContainerItem className="warning">
             <Warning fill={colors.white100} height="50%" width="100%" />

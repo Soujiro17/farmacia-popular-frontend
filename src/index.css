@@ -14,9 +14,17 @@ body {
   font-family: Hubballi-Regular;
 }
 
+body::-webkit-scrollbar {
+  display: none;
+}
+
 .grafico {
   height: 100% !important;
   width: 100% !important;
   background-color: #fff;
   border-radius: 0.5rem;
+}
+
+.gridjs-table {
+  width: 100% !important;
 }
