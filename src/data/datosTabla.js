@@ -46,4 +46,40 @@ export const datosProductos = [
   },
 ];
 
-export const datosVentas = [];
+export const datosVentas = [
+  {
+    id: 1,
+    estado: "En tránsito",
+    cliente: "Vicente Reyes",
+    paciente: "Marco Vivar",
+    total: 9990,
+  },
+  {
+    id: 2,
+    estado: "En tránsito",
+    cliente: "Marco Vivar",
+    paciente: "Aracelly Balboa",
+    total: 19990,
+  },
+  {
+    id: 3,
+    estado: "En despacho",
+    cliente: "Marcelo Estay",
+    paciente: "Juan Larenas",
+    total: 4990,
+  },
+  {
+    id: 4,
+    estado: "En preparación",
+    cliente: "Juan Larenas",
+    paciente: "Carlos Escobedo",
+    total: 1990,
+  },
+  {
+    id: 5,
+    estado: "En despacho",
+    cliente: "Brenda Araya",
+    paciente: "Ángel Araya",
+    total: 47990,
+  },
+];
