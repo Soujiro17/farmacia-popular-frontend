@@ -8,9 +8,11 @@ export default function Seleccion() {
         <div className={styles.line} />
         <div className={styles.groupButton}>
           <Link to="/formulario" className={styles.buttonForm}>
-            AAAA
+            Ingresar Pedido
           </Link>
-          <button type="button">Visualizacion</button>
+          <Link to="/formulario" className={styles.buttonForm}>
+            Visualizacion
+          </Link>
         </div>
       </div>
     </div>
