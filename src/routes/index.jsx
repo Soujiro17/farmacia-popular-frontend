@@ -11,11 +11,8 @@ const AppRoutes = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-<<<<<<< HEAD
+
         <Route path="/formularioPaciente" element={<FormPaciente/>} />
-=======
-        <Route path="/formulario" element={<FormPaciente />} />
->>>>>>> 71febbfe4f796721fd210ba675f9ccdbe3e2f6a9
         <Route path="/inicio" element={<Inicio />} />
         <Route path="/formproducto" element={<FormProducto />} />
         <Route path="/productos" element={<Productos />} />

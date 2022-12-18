@@ -4,7 +4,6 @@ export default function FormPaciente() {
   return (
     <div className={styles.mainContainer}>
       <div className={styles.centerConteiner}>
-<<<<<<< HEAD
         <div className={styles.wrapper}>
             <label>
               password
@@ -30,11 +29,6 @@ export default function FormPaciente() {
 
 
   )
-=======
-        <form className={styles.formulario} />
-      </div>
-      <img src="/img/icono.png" alt="Icono" className={styles.conteinerImg} />
-    </div>
-  );
->>>>>>> 71febbfe4f796721fd210ba675f9ccdbe3e2f6a9
+
+
 }
