@@ -6,11 +6,16 @@ import idiomaTabla from "../../data/idiomaTabla";
 const Tabla = ({
   data = [],
   columns = [],
-  disableSearch,
+  disableSearch = false,
   pagination,
   width,
+  disableAcciones = false,
 }) => {
-  const definitiveColumns = [...columns, { name: "Accion" }];
+  let definitiveColumns = columns;
+
+  if (!disableAcciones) {
+    definitiveColumns = [...columns, { name: "Accion" }];
+  }
 
   return (
     <Grid
