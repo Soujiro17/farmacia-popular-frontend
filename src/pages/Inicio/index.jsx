@@ -15,7 +15,7 @@ const Inicio = () => {
         <EstadosProductos />
         <GrayCard gridArea="logo">
           <LogoWrapper>
-            <Logo />
+            <Logo width="80%" />
           </LogoWrapper>
         </GrayCard>
         <Dashboard />

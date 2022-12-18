@@ -10,6 +10,7 @@ const colors = {
   white30: "rgba(255, 255, 255, .3)",
   white20: "rgba(255, 255, 255, .2)",
   white10: "rgba(255, 255, 255, .1)",
+  red: "rgba(255, 53, 53, 0.70)",
 };
 
 export default colors;
