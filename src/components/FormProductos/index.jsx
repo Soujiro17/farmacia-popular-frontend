@@ -1,14 +1,12 @@
-import React from "react";
 import styles from "./styles.module.css";
-import Seleccion from "../../components/Seleccion";
 
-const Home = () => {
+export default function FormProducto() {
   return (
     <div className={styles.mainContainer}>
-      <Seleccion />
+      <div className={styles.centerConteiner}>
+        <form className={styles.formulario} />
+      </div>
       <img src="/img/icono.png" alt="Icono" className={styles.conteinerImg} />
     </div>
   );
-};
-
-export default Home;
+}

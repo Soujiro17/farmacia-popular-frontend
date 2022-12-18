@@ -1,22 +1,8 @@
-.mainContainer{
-    min-height: 100%;
-    min-width: 1024px;
-      
-    width: 100%;
-    height: 100vh;
-      
-    position: relative;
-    top: 0;
-    left: 0;
-    background: linear-gradient(to bottom, #00141C,#5B002B);
-    
-}
-
 .centerConteiner{
     position: absolute;
-    width: 500px;
-    height: 300px;
-    top: 50%; left: 50%;
+    width: 800px;
+    height: 400px;
+    top: 45%; left: 50%;
     transform: translate(-50%,-50%);
     background: rgba(217, 217, 217, 0.17);
     border-radius: 30px;
@@ -25,191 +11,37 @@
 
 .groupButton{
     margin-top: 100px;
+    display:grid;
+    gap: 30px;
+    justify-content: center;
 }
 
-.groupButton button {
-    display: block; /* Make the buttons appear below each other */
-    margin: 50px auto auto;
-    width: 50%;
-    padding: 10px;
-}
+
 .line{/* Line 4 */
     margin-top: 25px;
-    margin-left: 130px;
+    margin-left: 200px;
     width: 50%;
     height: 0px;
     border: 1px solid #FFFFFF;
     }
-.conteinerImg{
-    position: absolute;
-    margin: 500px 10px;
-    width: 200px;
-    height: 100px;
+
+.buttonForm{
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom:10px;
+    background: #FFFFFF;
+    border: 10px;
+    column-width: 400px;
+    text-decoration: none;
+    border-radius: 5px; 
+    box-shadow: 0 4px #999;
+}
+.buttonForm:visited{
+    text-decoration: none;
+    color:black;
+}
+.buttonForm:hover{
+    background-color: azure;
+    scale:105%;
 }
 
-/* 
-position: absolute;
-width: 722px;
-height: 515px;
-left: 279px;
-top: 152px;
-
-
-
-
-position: absolute;
-width: 722px;
-height: 515px;
-left: 279px;
-top: 152px;
-
-background: rgba(217, 217, 217, 0.17);
-border-radius: 30px;
-
-
-
-position: absolute;
-width: 214px;
-height: 61px;
-left: 534px;
-top: 471px;
-
-
-
-
-position: absolute;
-width: 205px;
-height: 53px;
-left: 543px;
-top: 479px;
-
-background: #55609B;
-
-
-
-box-sizing: border-box;
-
-position: absolute;
-width: 205px;
-height: 53px;
-left: 534px;
-top: 471px;
-
-border: 2px solid #FFFFFF;
-
-
-
-position: absolute;
-width: 108px;
-height: 28px;
-left: 590px;
-top: 485px;
-
-font-family: 'Homenaje';
-font-style: normal;
-font-weight: 400;
-font-size: 26px;
-line-height: 28px;
-text-align: center;
-
-color: #FFFFFF;
-
-
-
-
-position: absolute;
-width: 49px;
-height: 49px;
-left: 928px;
-top: 181px;
-
-
-
-
-position: absolute;
-left: 0%;
-right: 0%;
-top: 0%;
-bottom: 0%;
-
-
-
-
-position: absolute;
-left: 8.33%;
-right: 8.33%;
-top: 8.33%;
-bottom: 8.33%;
-
-background: #FFFFFF;
-
-
-
-position: absolute;
-width: 416px;
-height: 0.02px;
-left: 433px;
-top: 205.98px;
-
-
-
-
-position: absolute;
-width: 416px;
-height: 0px;
-left: 433px;
-top: 206px;
-
-border: 1px solid #FFFFFF;
-transform: rotate(0deg);
-
-
-
-position: absolute;
-width: 214px;
-height: 61px;
-left: 534px;
-top: 308px;
-
-
-
-
-position: absolute;
-width: 205px;
-height: 53px;
-left: 543px;
-top: 316px;
-
-background: #55609B;
-
-
-
-box-sizing: border-box;
-
-position: absolute;
-width: 205px;
-height: 53px;
-left: 534px;
-top: 308px;
-
-border: 2px solid #FFFFFF;
-
-
-
-position: absolute;
-width: 127px;
-height: 28px;
-left: 581px;
-top: 322px;
-
-font-family: 'Homenaje';
-font-style: normal;
-font-weight: 400;
-font-size: 26px;
-line-height: 28px;
-text-align: center;
-
-color: #FFFFFF;
-
-
- */
