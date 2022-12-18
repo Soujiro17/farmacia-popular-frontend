@@ -25,4 +25,25 @@ export const columnasProductos = [
   },
 ];
 
-export const columnasVentas = [];
+export const columnasVentas = [
+  {
+    id: "id",
+    name: "Nro. de venta",
+  },
+  {
+    id: "estado",
+    name: "Estado",
+  },
+  {
+    id: "cliente",
+    name: "Cliente",
+  },
+  {
+    id: "paciente",
+    name: "Paciente",
+  },
+  {
+    id: "total",
+    name: "Total",
+  },
+];
