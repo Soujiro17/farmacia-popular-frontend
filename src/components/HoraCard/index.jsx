@@ -18,7 +18,7 @@ const HoraCard = () => {
     <GrayCard gridArea="hora">
       <Container>
         <Span className="dia" gridArea="dia">
-          {dias[DateTime.now().weekday]}
+          {dias[DateTime.now().weekday - 1]}
         </Span>
         <Span className="diaNum" gridArea="diaNum">
           {DateTime.now().day}
