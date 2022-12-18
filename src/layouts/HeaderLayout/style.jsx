@@ -6,4 +6,6 @@ export const Container = styled.div`
   min-height: 100vh;
 `;
 
-export const MainContent = styled.main``;
+export const MainContent = styled.main`
+  padding: 3rem;
+`;

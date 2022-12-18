@@ -10,6 +10,7 @@ export const HeaderCont = styled.header`
   justify-content: space-between;
   padding-left: 2rem;
   padding-right: 2rem;
+  border-bottom: 1px solid ${colors.white100};
 `;
 
 export const Navbar = styled.nav`
