@@ -11,28 +11,38 @@
 
 .groupButton{
     margin-top: 100px;
+    display:grid;
+    gap: 30px;
+    justify-content: center;
 }
 
-.groupButton button {
-    display: block; /* Make the buttons appear below each other */
-    margin: 50px auto auto;
-    width: 50%;
-    padding: 10px;
-}
+
 .line{/* Line 4 */
     margin-top: 25px;
-    margin-left: 130px;
+    margin-left: 200px;
     width: 50%;
     height: 0px;
     border: 1px solid #FFFFFF;
     }
-.conteinerImg{
-    position: absolute;
-    margin: 500px 50px;
-    width: 300px;
-    height: 100px;
-}
 
+.buttonForm{
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom:10px;
+    background: #FFFFFF;
+    border: 10px;
+    column-width: 400px;
+    text-decoration: none;
+    border-radius: 5px; 
+    
+}
+.buttonForm:visited{
+    text-decoration: none;
+    color:black;
+}
+.buttonForm:hover{
+    background-color: azure;
+}
 /* 
 position: absolute;
 width: 722px;

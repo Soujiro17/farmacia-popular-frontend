@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styles from "./styles.module.css";
 
 export default function Seleccion() {
@@ -6,11 +7,14 @@ export default function Seleccion() {
       <div className={styles.centerConteiner}>
         <div className={styles.line} />
         <div className={styles.groupButton}>
-          <button type="button">Ingresar pedido</button>
-          <button type="button">Visualizacion</button>
+          <Link to="/formulario" className={styles.buttonForm}>
+            Ingresar Pedido
+          </Link>
+          <Link to="/formulario" className={styles.buttonForm}>
+            Visualizacion
+          </Link>
         </div>
       </div>
-      <img src="/img/icono.png" alt="Icono" className={styles.conteinerImg} />
     </div>
   );
 }
