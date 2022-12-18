@@ -28,6 +28,20 @@ export const ContainerItem = styled.section`
   position: relative;
   z-index: 5;
 
+  &::after {
+    position: absolute;
+    bottom: 0.5rem;
+    left: 0.7rem;
+    height: 3rem;
+    width: 3rem;
+    content: "";
+    z-index: 1;
+    border-top: 1.5rem solid ${colors.white100};
+    border-right: 1.5rem solid ${colors.white100};
+    border-left: 1.5rem solid transparent;
+    border-bottom: 1.5rem solid transparent;
+  }
+
   &::before {
     position: absolute;
     inset: 0;
@@ -41,26 +55,47 @@ export const ContainerItem = styled.section`
 
   &.warning {
     background-color: ${colors.red};
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &::after {
+      background-color: ${colors.red};
+    }
   }
 
   &.uno {
     background-color: #ce0061;
+    &::after {
+      background-color: #ce0061;
+    }
   }
 
   &.dos {
     background-color: #15a7e1;
+    &::after {
+      background-color: #15a7e1;
+    }
   }
 
   &.tres {
     background-color: #6ab444;
+    &::after {
+      background-color: #6ab444;
+    }
   }
 
   &.cuatro {
     background-color: #b3bd33;
+    &::after {
+      background-color: #b3bd33;
+    }
   }
 
   &.cinco {
     background-color: #ff506d;
+    &::after {
+      background-color: #ff506d;
+    }
   }
 `;
 
@@ -69,10 +104,14 @@ export const AlertaText = styled.p`
   font-size: calc(1.2rem + 0.4vw);
   margin: 0%;
   &:first-of-type {
-    margin-top: 2rem;
+    margin-top: 0.5rem;
   }
 `;
 
 export const LinkToAlertas = styled(Link)`
+  display: block;
   color: ${colors.white100};
+  width: fit-content;
+  text-decoration: underline;
+  text-underline-offset: 5px;
 `;

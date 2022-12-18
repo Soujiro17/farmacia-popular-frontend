@@ -20,7 +20,7 @@ const colors = {
   white30: "rgba(255, 255, 255, .3)",
   white20: "rgba(255, 255, 255, .2)",
   white10: "rgba(255, 255, 255, .1)",
-  red: "rgba(255, 53, 53, .7)",
+  red: "#ec3e3e",
   green: "rgba(97, 255, 105, .7)",
   blue: "rgba(36, 175, 255, .7)",
 };
