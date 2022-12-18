@@ -5,12 +5,9 @@ export default function FormPaciente() {
 
     <div className={styles.mainContainer}>
       <div className={styles.centerConteiner}>
-       <form className="formulario">
-        <label className="label">asdasdddddddddddddddddddddddddddddddddd
+       <form className={styles.formulario}>
         
-        
-        
-        asdassa</label>
+          
        </form>
 
       </div>

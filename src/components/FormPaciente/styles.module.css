@@ -30,7 +30,8 @@
 }
 
 .formulario{
-    display: grid;  
+    display: grid;
+    align-items: center;  
 }
 .label{
     height: 300px;
