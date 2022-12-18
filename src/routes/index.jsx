@@ -11,7 +11,7 @@ const AppRoutes = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/formulario" element={<FormPaciente/>} />
+        <Route path="/formularioPaciente" element={<FormPaciente/>} />
         <Route path="/inicio" element={<Inicio />} />
         <Route path="/productos" element={<Productos />} />
         <Route path="*" element={<p>Página no encontrada</p>} />

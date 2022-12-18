@@ -5,14 +5,27 @@ export default function FormPaciente() {
 
     <div className={styles.mainContainer}>
       <div className={styles.centerConteiner}>
-       <form className={styles.formulario}>
-        
-          
-       </form>
-
+        <div className={styles.wrapper}>
+            <label>
+              password
+            </label>
+            <select> 
+              <default value="default">
+                hola
+              </default>
+           <option value="hola">
+              persona 1
+           </option>
+           <option value="hola">
+              persona 2
+           </option>
+            </select>
+        </div>
       </div>
+   
     <img src="/img/icono.png" alt="Icono" className={styles.conteinerImg} />
   </div>
+  
 
 
 
