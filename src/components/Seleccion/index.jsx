@@ -10,7 +10,7 @@ export default function Seleccion() {
           <Link to="/formulario" className={styles.buttonForm}>
             Ingresar Pedido
           </Link>
-          <Link to="/formulario" className={styles.buttonForm}>
+          <Link to="/inicio" className={styles.buttonForm}>
             Visualizacion
           </Link>
         </div>
