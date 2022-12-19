@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Input from "../../shared/Input";
 import useAuth from "../../hooks/useAuth";
 import {
@@ -17,7 +18,9 @@ const Login = () => {
     password: "",
   });
 
-  const { logIn } = useAuth();
+  const { auth, logIn } = useAuth();
+
+  const navigate = useNavigate();
 
   const handleValues = (e) => {
     setUser((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -26,8 +29,14 @@ const Login = () => {
   const onSubmit = (e) => {
     e.preventDefault();
 
-    logIn(user);
+    logIn.mutate(user);
   };
+
+  useEffect(() => {
+    if (auth) {
+      navigate("/inicio");
+    }
+  }, [auth, navigate]);
 
   return (
     <Container>
