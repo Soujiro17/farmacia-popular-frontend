@@ -47,13 +47,7 @@ const Productos = () => {
 
   return (
     <HeaderLayout>
-      <Tabla
-        columns={columnasProductos}
-        data={data}
-        handleModal={handleModal}
-        selected={selected}
-        pagination
-      />
+      <Tabla columns={columnasProductos} data={data} pagination />
       <ButtonContainer>
         <AgregarProducto onClick={() => handleModal("add")}>
           + Añadir producto
