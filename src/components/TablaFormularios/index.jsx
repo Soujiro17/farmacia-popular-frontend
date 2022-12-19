@@ -4,6 +4,7 @@ import { useState } from "react";
 import { HiOutlinePencilAlt,HiOutlineTrash} from "react-icons/hi";
 import FondoFormularios from "../FondoFormularios"
 import MuTablaFormularios from "../MuTablaFormularios";
+import HeaderLayout from "../../layouts/HeaderLayout/HeaderLayout";
 
 export default function TablaFormularios() {
 
@@ -15,7 +16,7 @@ export default function TablaFormularios() {
   const handleModal = (value) => setSelected(value);
   return (
     <FondoFormularios>
-      
+      <HeaderLayout>
       <section className="py-1 bg-blueGray-50">
 <div className="w-full xl:w-8/12 mb-12 xl:mb-0 px-4 mx-auto mt-24">
   <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded ">
@@ -126,7 +127,7 @@ export default function TablaFormularios() {
 
 
           <div className="flex justify-center items-end h-2/4 pb-10" />
-      
+          </HeaderLayout>
       
     </FondoFormularios>
   
