@@ -2,66 +2,58 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
 import React, { useState, createContext, useMemo } from "react";
 import { toast } from "react-toastify";
-//producto
+// producto
 import {
   addProducto as agregarProducto,
   updateProducto as actualizarProducto,
   deleteProducto as eliminarProducto,
   getProductos,
 } from "../app/api/productos";
-//orden
-import { 
-  addOrden as agregarOrden,
-  getOrdenes
-} from "../app/api/ordenes";
+// orden
+import { addOrden as agregarOrden, getOrdenes } from "../app/api/ordenes";
 
-import { 
+import {
   addPaciente as agregarPaciente,
-  getPacientes
+  getPacientes,
 } from "../app/api/pacientes";
 
 import useAxiosPrivate from "../hooks/useAxiosPrivate";
+import { datosProductos } from "../data/datosTabla";
 
 export const UserContext = createContext(null);
 
 const UserProvider = ({ children }) => {
   const [productos, setProductos] = useState([]);
   const [ordenes, setOrdenes] = useState([]);
-  const [pacientes,setPacientes] = useState([]);
+  const [pacientes, setPacientes] = useState([]);
 
   const axiosPrivate = useAxiosPrivate();
 
-    /* ***************** Paciente CRUD ***************** */
-    const paciente = useMutation(({ type, ...rest }) => {
-      // { type: 'hola', value: { nombreOrden: "", cliente: ""}, nombre: }
-      // rest = { value: { nombreOrden: "", cliente: ""}, nombre }
-      const datos = { axiosInstance: axiosPrivate, ...rest };
-  
-      if (type === "add") {
-        return agregarPaciente(datos);
-      }
-  
-      return null;
-    });
-    
-    const addPaciente = (values) => {
-      paciente.mutate(
-        { type: "add", values },
-        {
-          onSuccess: (data) => {
-          
-            setPacientes((prev) => [...prev, values]);
-            toast.success("Paciente agregado con exito");
-          },
-          onError: (error) => {
-            console.log(error)
-            toast.error("Error al ingresar paciente")
-          },
-        },
-      );
-    };
-  
+  /* ***************** Paciente CRUD ***************** */
+  const paciente = useMutation(({ type, ...rest }) => {
+    // { type: 'hola', value: { nombreOrden: "", cliente: ""}, nombre: }
+    // rest = { value: { nombreOrden: "", cliente: ""}, nombre }
+    const datos = { axiosInstance: axiosPrivate, ...rest };
 
+    if (type === "add") {
+      return agregarPaciente(datos);
+    }
+
+    return null;
+  });
+
+  const addPaciente = (values) => {
+    paciente.mutate(
+      { type: "add", values },
+      {
+        onSuccess: () => {
+          setPacientes((prev) => [...prev, values]);
+          toast.success("Paciente agregado con exito");
+        },
+        onError: () => toast.error("Error al ingresar paciente"),
+      },
+    );
+  };
 
   /* ***************** Orden CRUD ***************** */
 
@@ -166,44 +158,44 @@ const UserProvider = ({ children }) => {
       ordenes,
       addOrden,
 
-      //pacientes
+      // pacientes
       pacientes,
-      addPaciente
+      addPaciente,
     }),
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [productos,ordenes,pacientes],
+    [productos, ordenes, pacientes],
   );
 
-//get Pacientes
-const {isLoading: isLoadingPacientes} = useQuery(
-  ["pacientes"],
-  ()=> getPacientes({axiosInstance: axiosPrivate }),
-  {
-    onSuccess:(data) => setPacientes(data.pacientes),
-  },
-);
-
-  // Get Productos useQuery(id_único_peticion, función_a_llamar, opciones)
-  const {isLoading: isLoadingOrders} = useQuery(
-    ["ordenes"],
-    ()=> getOrdenes({axiosInstance: axiosPrivate }),
+  // get Pacientes
+  const { isLoading: isLoadingPacientes } = useQuery(
+    ["pacientes"],
+    () => getPacientes({ axiosInstance: axiosPrivate }),
     {
-      onSuccess:(data) => setOrdenes(data.productos),
+      onSuccess: (data) => setPacientes(data.pacientes),
     },
   );
 
+  // Get Productos useQuery(id_único_peticion, función_a_llamar, opciones)
+  const { isLoading: isLoadingOrders } = useQuery(
+    ["ordenes"],
+    () => getOrdenes({ axiosInstance: axiosPrivate }),
+    {
+      onSuccess: (data) => setOrdenes(data.productos),
+    },
+  );
 
-  //get para productos
+  // get para productos
   const { isLoading: isLoadingProducts } = useQuery(
     ["productos"], // Siempre con llaves el id de los datos de la petición: ["hola"] o ["hola", "2"] o ["hola", {hola: 1}]...
     () => getProductos({ axiosInstance: axiosPrivate }),
     {
       onSuccess: (data) => setProductos(data.productos),
+      onError: () => setProductos(datosProductos),
     },
   );
- console.log()
-  if (isLoadingProducts && isLoadingOrders && isLoadingPacientes) return <p>Loading...</p>;
-    
+  if (isLoadingProducts && isLoadingOrders && isLoadingPacientes)
+    return <p>Loading...</p>;
+
   return <UserContext.Provider value={values}>{children}</UserContext.Provider>;
 };
 

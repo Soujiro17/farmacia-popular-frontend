@@ -19,5 +19,6 @@ export const ModalCard = styled.div`
   height: 80%;
   background-color: ${colors.white100};
   border-radius: 0.5rem;
-  padding: 1rem;
+  overflow-y: auto;
+  padding: ${(props) => (props.disablePadding ? "0rem" : "1rem")};
 `;

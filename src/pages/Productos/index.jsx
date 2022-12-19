@@ -9,6 +9,7 @@ import { AgregarProducto, ButtonContainer } from "./style";
 import useUser from "../../hooks/useUser";
 import MutarProductos from "../../components/MutarProductos";
 import AccionesTabla from "../../components/AccionesTabla";
+import VerProducto from "../../components/VerProducto";
 
 const Productos = () => {
   const { productos, removeProducto } = useUser();
@@ -24,7 +25,12 @@ const Productos = () => {
     removeProducto(id);
   };
 
-  const onGo = (id) => alert("handling modal", id);
+  const onGo = (value) => {
+    setSelected({
+      value,
+      type: "show",
+    });
+  };
   const onEdit = (value) => handleModal(value);
 
   useEffect(() => {
@@ -36,7 +42,7 @@ const Productos = () => {
             <AccionesTabla
               onRemove={() => onRemove(value._id)}
               onEdit={() => onEdit(value)}
-              onGo={() => onGo(value._id)}
+              onGo={() => onGo(value)}
             />,
           ),
         };
@@ -53,8 +59,12 @@ const Productos = () => {
           + Añadir producto
         </AgregarProducto>
       </ButtonContainer>
-      {selected && (
-        <MutarProductos handleModal={handleModal} value={selected} />
+      {selected?.type === "show" ? (
+        <VerProducto handleModal={handleModal} values={selected?.value} />
+      ) : (
+        selected && (
+          <MutarProductos handleModal={handleModal} value={selected} />
+        )
       )}
     </HeaderLayout>
   );
