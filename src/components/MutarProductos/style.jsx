@@ -60,6 +60,7 @@ export const ButtonWrapper = styled.div`
 
 export const MutarButton = styled(Button)`
   width: 40%;
+  margin-top: 1rem;
   color: ${colors.white100};
   cursor: pointer;
   transition: 0.2s all;
