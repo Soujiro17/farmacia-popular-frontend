@@ -52,6 +52,7 @@ export const datosVentas = [
     estado: "En tránsito",
     cliente: "Vicente Reyes",
     paciente: "Marco Vivar",
+    medicamentos: "Paracetamol - Abrilar - Ibuprofeno",
     total: 9990,
   },
   {
@@ -59,6 +60,7 @@ export const datosVentas = [
     estado: "En tránsito",
     cliente: "Marco Vivar",
     paciente: "Aracelly Balboa",
+    medicamentos: "Paracetamol - Abrilar - Ibuprofeno",
     total: 19990,
   },
   {
@@ -66,6 +68,7 @@ export const datosVentas = [
     estado: "En despacho",
     cliente: "Marcelo Estay",
     paciente: "Juan Larenas",
+    medicamentos: "Paracetamol - Abrilar - Ibuprofeno",
     total: 4990,
   },
   {
@@ -73,6 +76,7 @@ export const datosVentas = [
     estado: "En preparación",
     cliente: "Juan Larenas",
     paciente: "Carlos Escobedo",
+    medicamentos: "Paracetamol - Abrilar - Ibuprofeno",
     total: 1990,
   },
   {
@@ -80,6 +84,7 @@ export const datosVentas = [
     estado: "En despacho",
     cliente: "Brenda Araya",
     paciente: "Ángel Araya",
+    medicamentos: "Paracetamol - Abrilar - Ibuprofeno",
     total: 47990,
   },
 ];

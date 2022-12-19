@@ -30,7 +30,7 @@ export const columnasProductos = [
 
 export const columnasVentas = [
   {
-    id: "id",
+    id: "_id",
     name: "Nro. de venta",
   },
   {
@@ -39,11 +39,15 @@ export const columnasVentas = [
   },
   {
     id: "cliente",
-    name: "Cliente",
+    name: "Encargado",
   },
   {
     id: "paciente",
     name: "Paciente",
+  },
+  {
+    id: "medicamentos",
+    name: "Medicamentos",
   },
   {
     id: "total",
@@ -60,21 +64,25 @@ export const columnasOrden = [
   {
     id: "paciente",
     name: "Nombre",
-    data: (row) => "".concat(row.paciente.nombre).concat(" ").concat(row.paciente.apellido),
+    data: (row) =>
+      "".concat(row.paciente.nombre).concat(" ").concat(row.paciente.apellido),
   },
   {
     id: "comprador",
     name: "Comprador",
-    data:(row) => row.paciente.nombreRepresentante,
+    data: (row) => row.paciente.nombreRepresentante,
   },
   {
-    id:"detalle",
-    name:"Direccion de entrega",
-    data: (row)=> "".concat(row.paciente.direccion).concat(", ").concat(row.paciente.sector),
+    id: "detalle",
+    name: "Direccion de entrega",
+    data: (row) =>
+      ""
+        .concat(row.paciente.direccion)
+        .concat(", ")
+        .concat(row.paciente.sector),
   },
   {
-    id:"createdAt",
-    name:"Fecha de Creacion"
-  }
-
+    id: "createdAt",
+    name: "Fecha de Creacion",
+  },
 ];
