@@ -4,7 +4,7 @@ export const getPacientes = async ({ axiosInstance }) => {
   };
   
   export const addPaciente = async ({ axiosInstance, values }) => {
-    const { data } = await axiosInstance.post("", values);
+    const { data } = await axiosInstance.post("/paciente/create", values);
   
     return data;
   };

@@ -5,7 +5,7 @@ export const getOrdenes = async ({ axiosInstance }) => {
 };
 
 export const addOrden = async ({ axiosInstance, values }) => {
-  const { data } = await axiosInstance.post("", values);
+  const { data } = await axiosInstance.post("/orden-de-compra/create", values);
 
   return data;
 };

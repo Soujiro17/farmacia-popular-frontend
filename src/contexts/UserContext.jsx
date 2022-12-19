@@ -48,11 +48,15 @@ const UserProvider = ({ children }) => {
       paciente.mutate(
         { type: "add", values },
         {
-          onSuccess: () => {
+          onSuccess: (data) => {
+          
             setPacientes((prev) => [...prev, values]);
             toast.success("Paciente agregado con exito");
           },
-          onError: () => toast.error("Error al ingresar paciente"),
+          onError: (error) => {
+            console.log(error)
+            toast.error("Error al ingresar paciente")
+          },
         },
       );
     };
