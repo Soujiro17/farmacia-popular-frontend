@@ -10,13 +10,14 @@ import Clientes from "../pages/Clientes";
 import NoEncontrado from "../pages/NoEncontrado";
 import TablaFormularios from "../components/TablaFormularios";
 import Login from "../pages/Login";
+import Editar from "../components/Editar";
 
 const AppRoutes = () => {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-
+        <Route path="/editar" element={<Editar />}/>
         <Route path="/formpaciente" element={<FormPaciente />} />
         <Route path="/tablaformularios" element={<TablaFormularios />} />
         <Route path="/inicio" element={<Inicio />} />

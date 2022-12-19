@@ -1,6 +1,7 @@
 /* eslint-disable prefer-destructuring */
 import React, { useState } from "react";
 import { toast } from "react-toastify";
+import { FcPlus} from "react-icons/fc";
 import MTablaFormularios from "../MTablaFormularios";
 import Input from "../../shared/Input";
 import Label from "../../shared/Label";
@@ -86,8 +87,10 @@ const preview = usePreview();
 
           
 
-
-
+          
+            <button className="bg-indigo-500 text-white active:bg-indigo-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" 
+            style={{height: "40px", width : "250px"}}
+            type="button"> Añadir otro  medicamento  <FcPlus className=""style={{height: "20px", width : "210px"}}/> </button>
               <h3 htmlFor="Stock">Medicamentos</h3>  
               <select id="countries" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 white:bg-gray-700 dark:border-gray-600 white:placeholder-gray-400 white:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 <option selected>Escoger medicamento</option>
