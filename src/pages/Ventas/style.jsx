@@ -37,9 +37,12 @@ export const EstadoContainer = styled.div`
     }
 
     &.despacho {
-      background-color: ${colors.blue};
+      background-color: #ddff34;
     }
     &.transito {
+      background-color: ${colors.blue};
+    }
+    &.entregado {
       background-color: ${colors.green};
     }
   }

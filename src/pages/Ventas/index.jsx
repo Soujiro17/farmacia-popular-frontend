@@ -12,6 +12,7 @@ const Ventas = () => {
       preparacion: 0,
       despacho: 0,
       transito: 0,
+      entregado: 0,
     };
 
     datosVentas.map((venta) => {
@@ -19,6 +20,8 @@ const Ventas = () => {
         estadosTemp.transito += 1;
       } else if (venta.estado === "En despacho") {
         estadosTemp.despacho += 1;
+      } else if (venta.estado === "Entregado") {
+        estadosTemp.entregado += 1;
       } else {
         estadosTemp.preparacion += 1;
       }
@@ -39,6 +42,9 @@ const Ventas = () => {
         </EstadoContainer>
         <EstadoContainer>
           En tránsito <span className="transito">{estados.transito}</span>
+        </EstadoContainer>
+        <EstadoContainer>
+          Entregado <span className="entregado">{estados.entregado}</span>
         </EstadoContainer>
       </PedidosEstados>
       <Tabla columns={columnasVentas} data={datosVentas} disableAcciones />
