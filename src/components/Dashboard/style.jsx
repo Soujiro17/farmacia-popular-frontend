@@ -31,8 +31,8 @@ export const ContainerItem = styled.section`
 
   &::after {
     position: absolute;
-    bottom: 0.5rem;
-    left: 0.7rem;
+    bottom: 0.4rem;
+    left: 0.4rem;
     height: 3rem;
     width: 3rem;
     content: "";
