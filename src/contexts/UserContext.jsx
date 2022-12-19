@@ -18,7 +18,7 @@ import {
 } from "../app/api/pacientes";
 
 import useAxiosPrivate from "../hooks/useAxiosPrivate";
-import { datosProductos } from "../data/datosTabla";
+import { datosProductos, datosVentas } from "../data/datosTabla";
 
 export const UserContext = createContext(null);
 
@@ -181,6 +181,7 @@ const UserProvider = ({ children }) => {
     () => getOrdenes({ axiosInstance: axiosPrivate }),
     {
       onSuccess: (data) => setOrdenes(data.productos),
+      onError: () => setOrdenes(datosVentas),
     },
   );
 

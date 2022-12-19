@@ -36,14 +36,26 @@ export const columnasVentas = [
   {
     id: "estado",
     name: "Estado",
-  },
-  {
-    id: "cliente",
-    name: "Encargado",
+    data: (row) => {
+      if (row.estado === 0) {
+        return "En preparación";
+      }
+      if (row.estado === 1) {
+        return "En despacho";
+      }
+      if (row.estado === 2) {
+        return "En tránsito";
+      }
+      return "Entregado";
+    },
   },
   {
     id: "paciente",
     name: "Paciente",
+  },
+  {
+    id: "vendedor",
+    name: "Vendedor",
   },
   {
     id: "medicamentos",
