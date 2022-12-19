@@ -17,7 +17,6 @@ const AppRoutes = () => {
     <BrowserRouter>
       <Routes>
 
-        <Route path="/" element={<Home />} />
         <Route path="/editar" element={<Editar />}/>
 
         <Route path="/orden-compra" element={<Home />} />

@@ -1,10 +1,9 @@
 /* eslint-disable prefer-destructuring */
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { FcPlus} from "react-icons/fc";
 import MTablaFormularios from "../MTablaFormularios";
-import Input from "../../shared/Input";
-import Label from "../../shared/Label";
+
 import useUser from "../../hooks/useUser";
 import usePreview from "../../hooks/usePreview";
 import {
@@ -32,9 +31,20 @@ const initialValues = {
 
 
 const MuTablaFormularios = ({ handleModal, value }) => {
+  const {pacientes} = useUser();
+  const {productos} = useUser();
+  const [listaPacientes,setPacientes] = useState(pacientes)
   const [values, setValues] = useState(value === "add" ? initialValues : value);
-const preview = usePreview();
+  const [listaProductos] = useState(productos);
+  const [cant,setCant] = useState(1);
 
+ 
+
+
+
+
+  const preview = usePreview();
+  
 
   const { updateProducto, addProducto } = useUser();
 
@@ -58,6 +68,7 @@ const preview = usePreview();
     setValues((prev) => ({ ...prev, [e.target.name]: value }));
   };
 
+  
   return (
     <MTablaFormularios handleModal={handleModal} value={value}>
       <Title>{values.descripcion || "Encargado: "}</Title>
@@ -65,16 +76,26 @@ const preview = usePreview();
       <ValuesContainer>
         <FormWrapper>
           <Form>
+            
             <FormGroup>
-            <h3 htmlFor="Stock">Paciente</h3>  
+              
+            <h3 htmlFor="Stock">Pacientes</h3> 
             <select id="countries" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 white:bg-gray-700 dark:border-gray-600 white:placeholder-gray-400 white:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                <option selected>Escoger paciente</option>
-                <option value="US">United States</option>
-                <option value="US">United States</option>
+            <option defaultValue="">Escoger paciente</option>
+            {listaPacientes.map((value,index)=>{  
+              return(
+              <>
+              <option value={value.nombre}>{value.nombre}</option>
+              </>
+              )
+            })}
+                
             </select>
+            
             </FormGroup>
            
-            <FormGroup>
+           
+            {/* <FormGroup>
               <Label htmlFor="rut">Rut</Label>
               <Input
                 id="cantidad"
@@ -82,38 +103,48 @@ const preview = usePreview();
                 value={values.cantidad}
                 onChange={handleValues}
               />
-            </FormGroup>
-            <FormGroup>
-
-          
-
-          
-            <button className="bg-indigo-500 text-white active:bg-indigo-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" 
-            style={{height: "40px", width : "250px"}}
-            type="button"> Añadir otro  medicamento  <FcPlus className=""style={{height: "20px", width : "210px"}}/> </button>
-              <h3 htmlFor="Stock">Medicamentos</h3>  
-              <select id="countries" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 white:bg-gray-700 dark:border-gray-600 white:placeholder-gray-400 white:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                <option selected>Escoger medicamento</option>
-                <option value="US">United States</option>
-                <option value="US">United States</option>
-            </select>
-        
-            </FormGroup>
+            </FormGroup> */}
            
-          </Form>
-          
-        </FormWrapper>
-        <Form>
+           {/*aqui va el select*/}
+           <FormGroup>
+
+<h3 htmlFor="Stock">Medicamentos</h3>  
+<select name={value} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 white:bg-gray-700 dark:border-gray-600 white:placeholder-gray-400 white:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+  <option selected>Escoger medicamento</option>
+  {listaProductos.map((value,index)=>{
+
+    return(
+    <>
+    <option value={value.nombre}> {value.nombre}</option>
+  
+    </>
+    )
+  })}
+ 
+</select>
+<input type="number" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 white:bg-gray-700 dark:border-gray-600 white:placeholder-gray-400 white:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></input>
+ 
+
+
+</FormGroup> 
+            <button className="bg-indigo-500 text-white active:bg-indigo-600 text-xs font-bold mt-2 uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" 
+  
+            style={{height: "40px", width : "250px"}}
+            type="button"> Añadir otro  medicamento  <FcPlus className=""style={{height: "20px", width : "210px"}}/> </button>      
+      
+       
+      
 
       <div className="center-text" />
         <button className="bg-indigo-500
          text-white active:bg-indigo-600 
          text-xs font-bold uppercase px-3 py-1 rounded outline-none 
          focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"style={{height: "40px", width : "200px"}} 
-         type="button" onClick={value !== "add" ? onClickUpdate : onClickAdd} >Generar boleta
+         type="button" onClick={value !== "add" ? onClickUpdate : onClickAdd} >Crear Orden
          </button>
          {value !== "add" ? "Actualizar" : ""}
         </Form>
+         </FormWrapper>
       </ValuesContainer>
     </MTablaFormularios>
   );
