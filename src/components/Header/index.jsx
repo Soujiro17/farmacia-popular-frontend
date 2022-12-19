@@ -41,6 +41,11 @@ const Header = () => {
               Ventas
             </NavLink>
           </NavItem>
+          <NavItem>
+            <NavLink to="/ordencompra" end>
+              Orden de Compras
+            </NavLink>
+          </NavItem>
         </NavList>
       </Navbar>
       <UserIcon css={userIconCss} />
