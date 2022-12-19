@@ -1,13 +1,16 @@
 import React from "react";
 import styles from "./styles.module.css";
 import Seleccion from "../../components/Seleccion";
-
+import FondoFormularios from "../../components/FondoFormularios"
 const Home = () => {
   return (
-    <div className={styles.mainContainer}>
+
+  
+    <FondoFormularios>
       <Seleccion />
-      <img src="/img/icono.png" alt="Icono" className={styles.conteinerImg} />
-    </div>
+      <img src="/img/icono.png" alt="Icono" className="absolute top-[80%] scale-50" />
+      </FondoFormularios>
+  
   );
 };
 

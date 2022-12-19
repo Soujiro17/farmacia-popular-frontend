@@ -17,6 +17,7 @@ export const ItemsWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 2%;
+  color: ${colors.black100};
 `;
 
 export const ContainerItem = styled.section`
@@ -58,6 +59,7 @@ export const ContainerItem = styled.section`
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: ${colors.white100};
     &::after {
       background-color: ${colors.red};
     }
