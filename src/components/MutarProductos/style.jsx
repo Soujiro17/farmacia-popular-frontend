@@ -8,7 +8,8 @@ const borderRadius = css`
 
 export const ValuesContainer = styled.div`
   background-color: ${colors.black20};
-  height: 87%;
+  min-height: 87%;
+  height: fit-content;
   ${borderRadius}
   padding: 1rem;
 `;
