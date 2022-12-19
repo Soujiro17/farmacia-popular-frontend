@@ -15,14 +15,13 @@ const AppRoutes = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
-
+        <Route path="/orden-compra" element={<Home />} />
+        <Route path="/" element={<Login />} />
         <Route path="/formpaciente" element={<FormPaciente />} />
         <Route path="/tablaformularios" element={<TablaFormularios />} />
         <Route path="/inicio" element={<Inicio />} />
         <Route path="/ventas" element={<Ventas />} />
         <Route path="/clientes" element={<Clientes />} />
-        <Route path="/login" element={<Login />} />
         <Route path="/formproducto" element={<FormProducto />} />
         <Route path="/productos" element={<Productos />} />
         <Route path="*" element={<NoEncontrado />} />
