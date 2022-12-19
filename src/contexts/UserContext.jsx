@@ -9,7 +9,10 @@ import {
   getProductos,
 } from "../app/api/productos";
 
-import { addOrden as agregarOrden } from "../app/api/ordenes";
+import { 
+  addOrden as agregarOrden,
+  getOrdenes
+} from "../app/api/ordenes";
 // import { datosProductos } from "../data/datosTabla";
 import useAxiosPrivate from "../hooks/useAxiosPrivate";
 
@@ -127,6 +130,13 @@ const UserProvider = ({ children }) => {
   );
 
   // Get Productos useQuery(id_único_peticion, función_a_llamar, opciones)
+  const {isLoading: isLoadingOrders} = useQuery(
+    ["ordenes"],
+    ()=> getOrdenes({axiosInstance:axiosPrivate}),
+    {
+      onSuccess:(data) => setOrdenes(data.productos),
+    },
+  );
   const { isLoading: isLoadingProducts } = useQuery(
     ["productos"], // Siempre con llaves el id de los datos de la petición: ["hola"] o ["hola", "2"] o ["hola", {hola: 1}]...
     () => getProductos({ axiosInstance: axiosPrivate }),
@@ -135,7 +145,7 @@ const UserProvider = ({ children }) => {
     },
   );
 
-  if (isLoadingProducts) return <p>Loading...</p>;
+  if (isLoadingProducts && isLoadingOrders) return <p>Loading...</p>;
 
   return <UserContext.Provider value={values}>{children}</UserContext.Provider>;
 };

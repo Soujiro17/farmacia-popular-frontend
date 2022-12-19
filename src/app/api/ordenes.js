@@ -1,5 +1,5 @@
 export const getOrdenes = async ({ axiosInstance }) => {
-  const { data } = await axiosInstance.get("");
+  const { data } = await axiosInstance.get("/orden-de-compra/get-all-ordenes");
 
   return data;
 };
