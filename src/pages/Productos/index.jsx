@@ -1,7 +1,7 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable no-alert */
 import React, { useEffect, useState } from "react";
 import { _ } from "gridjs-react";
-import { toast } from "react-toastify";
 import HeaderLayout from "../../layouts/HeaderLayout/HeaderLayout";
 import Tabla from "../../components/Tabla";
 import { columnasProductos } from "../../data/columnasTabla";
@@ -22,8 +22,6 @@ const Productos = () => {
     if (!window.confirm("Deseas eliminar este registro?")) return;
 
     removeProducto(id);
-
-    toast.success("Producto eliminado con éxito");
   };
 
   const onGo = (id) => alert("handling modal", id);
@@ -36,9 +34,9 @@ const Productos = () => {
           ...value,
           accion: _(
             <AccionesTabla
-              onRemove={() => onRemove(value.id)}
+              onRemove={() => onRemove(value._id)}
               onEdit={() => onEdit(value)}
-              onGo={() => onGo(value.id)}
+              onGo={() => onGo(value._id)}
             />,
           ),
         };

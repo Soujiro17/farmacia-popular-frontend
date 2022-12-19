@@ -1,27 +1,30 @@
 export const columnasProductos = [
   {
-    id: "id",
+    id: "_id",
     name: "Código",
+  },
+  {
+    id: "nombre",
+    name: "Nombre",
   },
   {
     id: "descripcion",
     name: "Descripción",
   },
   {
-    id: "u_medida",
-    name: "U. medida",
-  },
-  {
     id: "cantidad",
     name: "Cantidad",
   },
+
   {
-    id: "posologia",
-    name: "Posología",
+    id: "necesitaReceta",
+    name: "Necesita receta",
+    data: (row) => (row.necesitaReceta ? "Sí" : "No"),
   },
   {
-    id: "stock",
-    name: "Stock",
+    id: "valor",
+    name: "Valor",
+    data: (row) => "$".concat(row.valor.toLocaleString("es-CL")),
   },
 ];
 
@@ -45,5 +48,6 @@ export const columnasVentas = [
   {
     id: "total",
     name: "Total",
+    data: (row) => "$".concat(row.total.toLocaleString("es-CL")),
   },
 ];

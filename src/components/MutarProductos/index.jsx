@@ -1,6 +1,5 @@
 /* eslint-disable prefer-destructuring */
 import React, { useState } from "react";
-import { toast } from "react-toastify";
 import Modal from "../Modal";
 import Input from "../../shared/Input";
 import Label from "../../shared/Label";
@@ -20,11 +19,10 @@ import {
 import usePreview from "../../hooks/usePreview";
 
 const initialValues = {
+  nombre: "",
   descripcion: "",
-  u_medida: "",
   cantidad: 0,
-  posologia: "",
-  stock: 0,
+  necesitaReceta: false,
   src: "",
   img: null,
 };
@@ -37,15 +35,23 @@ const MutarProductos = ({ handleModal, value }) => {
   const { updateProducto, addProducto } = useUser();
 
   const onClickUpdate = () => {
-    updateProducto(values);
-    toast.success("Producto actualizado con éxito");
+    updateProducto({
+      value: values,
+      callBack: () => {
+        handleModal("");
+      },
+    });
   };
 
   const onClickAdd = () => {
     const finalValue = { ...values, src: preview };
 
-    addProducto(finalValue);
-    toast.success("Producto añadido con éxito");
+    addProducto({
+      value: finalValue,
+      callBack: () => {
+        handleModal("");
+      },
+    });
   };
 
   const handleValues = (e) => {
@@ -53,6 +59,8 @@ const MutarProductos = ({ handleModal, value }) => {
 
     if (e.target.name === "img") {
       value = e.target.files;
+    } else if (e.target.name === "necesitaReceta") {
+      value = !values.necesitaReceta;
     }
 
     setValues((prev) => ({ ...prev, [e.target.name]: value }));
@@ -60,26 +68,26 @@ const MutarProductos = ({ handleModal, value }) => {
 
   return (
     <Modal handleModal={handleModal} value={value}>
-      <Title>{values.descripcion || "Nombre producto"}</Title>
+      <Title>{values.nombre || "Nombre producto"}</Title>
       <SubTitle>Código: {value.codigo || "Código producto"}</SubTitle>
       <ValuesContainer>
         <FormWrapper>
           <Form>
+            <FormGroup>
+              <Label htmlFor="nombre">Nombre</Label>
+              <Input
+                id="nombre"
+                name="nombre"
+                value={values.nombre}
+                onChange={handleValues}
+              />
+            </FormGroup>
             <FormGroup>
               <Label htmlFor="descripcion">Descripción</Label>
               <Input
                 id="descripcion"
                 name="descripcion"
                 value={values.descripcion}
-                onChange={handleValues}
-              />
-            </FormGroup>
-            <FormGroup>
-              <Label htmlFor="u_medida">Unidad de medida</Label>
-              <Input
-                id="u_medida"
-                name="u_medida"
-                value={values.u_medida}
                 onChange={handleValues}
               />
             </FormGroup>
@@ -93,20 +101,22 @@ const MutarProductos = ({ handleModal, value }) => {
               />
             </FormGroup>
             <FormGroup>
-              <Label htmlFor="Stock">Stock</Label>
+              <Label htmlFor="valor">Valor</Label>
               <Input
-                id="Stock"
-                name="stock"
-                value={values.stock}
+                id="valor"
+                name="valor"
+                value={values.valor}
                 onChange={handleValues}
               />
             </FormGroup>
             <FormGroup>
-              <Label htmlFor="posologia">Posología</Label>
+              <Label htmlFor="necesitaReceta">Receta</Label>
               <Input
-                id="posologia"
-                name="posologia"
-                value={values.posologia}
+                id="necesitaReceta"
+                name="necesitaReceta"
+                value={values.necesitaReceta}
+                checked={values.necesitaReceta}
+                type="checkbox"
                 onChange={handleValues}
               />
             </FormGroup>
