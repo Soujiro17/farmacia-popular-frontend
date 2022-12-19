@@ -8,7 +8,9 @@ const FooterCont = styled.footer`
   width: 100%;
   height: 80px;
   background-color: ${colors.black30};
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 export default FooterCont;

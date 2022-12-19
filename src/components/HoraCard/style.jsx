@@ -28,10 +28,9 @@ export const Span = styled.span`
 
   &.diaNum {
     font-size: calc(0.7rem + 5vw);
-    transform: translateY(-10px);
   }
   &.anio {
-    font-size: calc(0.7rem + 2vw);
+    font-size: calc(0.7rem + 1vw);
   }
 `;
 
