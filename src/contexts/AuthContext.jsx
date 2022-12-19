@@ -1,31 +1,42 @@
+import { useMutation, useQuery } from "@tanstack/react-query";
 import { createContext, useMemo, useState } from "react";
 import { toast } from "react-toastify";
-import { axiosPublic } from "../services/axios";
+import { getLoggedIn, logIn as logInFunc } from "../app/api/auth";
+import useAxiosPrivate from "../hooks/useAxiosPrivate";
 
 export const AuthContext = createContext(null);
 
 const AuthProvider = ({ children }) => {
   const [auth, setAuth] = useState(null);
 
-  const logIn = async (values) => {
-    const { data } = await axiosPublic
-      .post("/encargado/authenticate", {
-        values,
-      })
-      .catch((err) => toast.error(err.message));
+  const axiosPrivate = useAxiosPrivate();
 
-    localStorage.setItem("token", data.token);
-    setAuth(data.token);
-    toast.success("Sesión iniciada con éxito");
-  };
+  const logIn = useMutation((data) => logInFunc({ values: data }), {
+    onSuccess: (data) => {
+      localStorage.setItem("token", data.token);
+      setAuth({ token: data.token, user: data.user });
+      toast.success("Sesión iniciada con éxito");
+    },
+    onError: () => toast.error("Error al iniciar sesión"),
+  });
+
+  const getUser = useQuery(
+    ["auth"],
+    () => getLoggedIn({ axiosInstance: axiosPrivate }),
+    {
+      onSuccess: (data) => {
+        localStorage.setItem("token", data.token);
+        setAuth({ token: data.token, user: data.user });
+      },
+    },
+  );
 
   const values = useMemo(
-    () => ({
-      auth,
-      logIn,
-    }),
-    [auth],
+    () => ({ auth, setAuth, getUser, logIn }),
+    [auth, getUser, logIn],
   );
+
+  if (getUser.isLoading) return <p>Loading...</p>;
 
   return <AuthContext.Provider value={values}>{children}</AuthContext.Provider>;
 };

@@ -14,4 +14,5 @@ export const ImgNoEncontrado = styled.img``;
 
 export const Title = styled.h1`
   color: ${colors.white100};
+  font-size: calc(2rem + 0.4vw);
 `;
