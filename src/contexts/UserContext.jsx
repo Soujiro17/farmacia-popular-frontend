@@ -7,14 +7,18 @@ const UserProvider = ({ children }) => {
   const [productos, setProductos] = useState(datosProductos);
 
   const removeProducto = (id) => {
+    /* axios.delete() */
     setProductos((prev) => prev.filter((item) => item.id !== id));
   };
 
   const addProducto = (value) => {
+    /* axios.post() */
+
     setProductos((prev) => [...prev, { ...value, id: productos.length + 1 }]);
   };
 
   const updateProducto = (value) => {
+    /* axios.update() */
     setProductos((prev) =>
       prev.map((item) => {
         if (item.id === value.id) return value;
